@@ -47,11 +47,16 @@ Build scripts and CI workflows are in each platform directory and `.github/workf
 
 ## Website and legal
 
-- Website: https://arc2898.github.io/sharexf/
+The static website and deployment workflow are in `website/` and `.github/workflows/pages.yml`. To publish it, set **Settings → Pages → Source → GitHub Actions** and confirm the deployment in the Actions tab. The expected URL is https://arc2898.github.io/sharexf/.
+
 - [Privacy policy](https://arc2898.github.io/sharexf/privacy.html)
 - [Terms and conditions](https://arc2898.github.io/sharexf/terms.html)
 
 The application is designed for direct device-to-device communication. Optional update checks may contact GitHub. Read the privacy policy for details.
+
+## Source package
+
+The complete multi-platform application tree is supplied in the ShareXF source archive. To import it into this repository, extract the archive and run `python3 publish-to-github.py` from its root directory. See [PUBLISHING.md](PUBLISHING.md). This keeps generated build files and local signing credentials out of the repository.
 
 ## Contributing and licensing
 
@@ -64,3 +69,7 @@ Do not publish private keys, signing certificates, keystores, passwords or devic
 ## Publishing
 
 See [PUBLISHING.md](PUBLISHING.md) for enabling GitHub Pages and publishing the full platform source from the supplied source archive.
+
+## QA
+
+See [QA_REPORT.md](QA_REPORT.md) for sandbox syntax and shared-library test results, plus checks blocked by missing platform dependencies.
