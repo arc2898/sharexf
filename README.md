@@ -13,7 +13,7 @@ ShareXF is a privacy-minded, open-source device connectivity suite for macOS, Wi
 | Linux | x86_64; Debian/Ubuntu and Fedora-family packages | .deb, .rpm, .AppImage |
 | Android 10+ | Phones and tablets | .apk |
 
-Prebuilt packages are published on the [GitHub Releases page](https://github.com/arc2898/sharexf/releases). A package is available only after its corresponding build has completed and been published.
+Release packages will appear on the [GitHub Releases page](https://github.com/arc2898/sharexf/releases) after their platform builds complete.
 
 ## Features
 
