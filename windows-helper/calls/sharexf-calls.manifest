@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ShareXF — Copyright (C) 2026 inukaasith. GPL-3.0, see LICENSE.
+     sharexf-calls.exe's own manifest: the msix element names the sparse package (AppxManifest.xml)
+     whose identity Windows gives it when it starts, once that package is registered. -->
+<assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1">
+  <assemblyIdentity version="1.0.0.0" name="ShareXF.Calls"/>
+  <msix xmlns="urn:schemas-microsoft-com:msix.v1" publisher="CN=ShareXF" packageName="ShareXF.Calls" applicationId="Calls"/>
+  <trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">
+    <security>
+      <requestedPrivileges>
+        <requestedExecutionLevel level="asInvoker" uiAccess="false"/>
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+</assembly>

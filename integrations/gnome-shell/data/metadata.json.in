@@ -1,0 +1,7 @@
+{
+    "uuid": "sharexf@sharexf.local",
+    "name": "ShareXF GNOME integration",
+    "description": "Optional GNOME Shell integration for KDE Connect-compatible Android devices. This component uses the KDE Connect protocol and is maintained separately from the native ShareXF desktop transport.",
+    "version": @PACKAGE_VERSION@,
+    "shell-version": [ "46", "47", "48", "49", "50", "51" ]
+}

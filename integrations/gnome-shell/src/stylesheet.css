@@ -1,0 +1,127 @@
+/*
+ * SPDX-FileCopyrightText: GSConnect Developers https://github.com/GSConnect
+ *
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
+
+/* Device Menu
+
+PopupMenu.PopupMenuSection.sharexf-device-section
+    PopupMenu.PopupMenuSection.sharexf-device-menu
+        PopupMenu.PopupSeparatorMenuItem
+            StLabel.sharexf-device-name
+            StBoxLayout.sharexf-device-battery
+        PopupMenu.PopupMenuSection
+            StBoxLayout.sharexf-list-box
+            StBoxLayout (Submenu Container)
+*/
+.sharexf-device-section {
+}
+
+/* Title Bar */
+.sharexf-device-name {
+    font-weight: bold;
+}
+
+.sharexf-device-menu .popup-separator-menu-item {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Battery Widget */
+.sharexf-device-battery {
+    spacing: 3px;
+}
+
+.sharexf-device-battery StLabel {
+    font-size: 0.75em;
+}
+
+.sharexf-device-battery StIcon {
+    icon-size: 16px;
+}
+
+/* Signal Strength Widget */
+.sharexf-device-signal-strength {
+    spacing: 3px;
+}
+
+.sharexf-device-signal-strength StLabel {
+    font-size: 0.75em;
+}
+
+.sharexf-device-signal-strength StIcon {
+    icon-size: 16px;
+}
+
+/* List Box */
+.sharexf-list-box {
+}
+
+
+/* Device Panel Indicator
+
+PanelMenu.Button.sharexf-device-indicator
+    PopupMenu.PopupMenu
+        PopupMenu.PopupMenuSection.sharexf-device-menu
+            PopupMenu.PopupSeparatorMenuItem
+                StLabel.sharexf-device-name
+                StBoxLayout.sharexf-device-battery
+            PopupMenu.PopupMenuSection
+                StBoxLayout.sharexf-icon-box
+                StBoxLayout (Submenu Container)
+ */
+.sharexf-device-indicator {
+    -st-icon-style: symbolic;
+}
+
+/* Icon Box */
+.sharexf-icon-box {
+    margin: 0em 2em 0.5em;
+    spacing: 6px;
+}
+
+.sharexf-icon-button {
+    border-radius: 1em;
+    padding: 0.5em;
+}
+
+.sharexf-icon-button:hover, .sharexf-icon-button:focus {
+    background-color: rgba(255, 255, 255, 0.125);
+}
+
+.sharexf-icon-button StIcon {
+    icon-size: 1em;
+}
+
+
+/* Tooltip
+
+StBin.sharexf-tooltip (inherits from .osd-window)
+    StBoxLayout || [ Custom ClutterActor ]
+        StIcon
+        StLabel
+*/
+.sharexf-tooltip {
+    border-radius: 3px;
+    min-width: 0;
+    min-height: 0;
+    padding: 6px;
+}
+
+.sharexf-tooltip > StBoxLayout {
+    spacing: 6px;
+}
+
+.sharexf-tooltip StIcon {
+    icon-size: 16px;
+}
+
+.sharexf-tooltip StLabel {
+    font-weight: normal;
+    text-align: left;
+}
+
+.sharexf-tooltip StLabel:rtl {
+    text-align: right;
+}

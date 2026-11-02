@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: ShareXF Developers https://github.com/ShareXF
+#
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+project_identifier: org.gnome.Shell.Extensions.ShareXF
+files:
+  - source: /po/org.gnome.Shell.Extensions.ShareXF.pot
+    translation: /po/%two_letters_code%.po
+    languages_mapping:
+      two_letters_code:
+        nl-BE: nl_BE
+        nl-NL: nl
+        pt-BR: pt_BR
+        pt-PT: pt
+        sr-CS: sr@latin
+        sr-SP: sr
+        zh-CN: zh_CN
+        zh-TW: zh_TW

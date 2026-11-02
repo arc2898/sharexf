@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.gnome.Shell.Extensions.ShareXF</id>
+  <name>ShareXF GNOME integration</name>
+  <summary>Optional GNOME Shell integration for KDE Connect-compatible devices</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+  <developer><name>ShareXF contributors</name></developer>
+  <launchable type="desktop-id">org.gnome.Shell.Extensions.ShareXF.desktop</launchable>
+  <requires><id>org.gnome.Shell</id></requires>
+  <description>
+    <p>This optional GNOME Shell component provides device notifications, file sharing, clipboard synchronization, media controls and remote commands for KDE Connect-compatible devices. It uses the KDE Connect protocol and does not yet connect to the native ShareXF transport.</p>
+  </description>
+</component>

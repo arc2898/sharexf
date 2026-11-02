@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>CFBundleIdentifier</key><string>org.sharexf.mac.helper</string>
+  <key>CFBundleName</key><string>ShareXF Helper</string>
+  <key>NSBluetoothAlwaysUsageDescription</key><string>ShareXF connects to your phone and computers over Bluetooth when they aren't on your network.</string>
+  <key>NSBluetoothPeripheralUsageDescription</key><string>ShareXF connects to your phone and computers over Bluetooth when they aren't on your network.</string>
+  <key>NSLocationUsageDescription</key><string>macOS shows Wi-Fi networks only to apps with Location. ShareXF joins your phone's or PC's Wi-Fi to send files when they aren't on your network.</string>
+  <key>NSLocationWhenInUseUsageDescription</key><string>macOS shows Wi-Fi networks only to apps with Location. ShareXF joins your phone's or PC's Wi-Fi to send files when they aren't on your network.</string>
+  <key>NSLocalNetworkUsageDescription</key><string>ShareXF finds and connects to your phone and PC on the local network.</string>
+  <key>NSMicrophoneUsageDescription</key><string>ShareXF sends sound between your Mac and your devices.</string>
+  <key>NSAudioCaptureUsageDescription</key><string>ShareXF sends your Mac's sound to your devices.</string>
+</dict></plist>

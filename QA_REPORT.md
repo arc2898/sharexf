@@ -24,11 +24,11 @@
 - Native macOS, Windows, Android and Linux package builds were not executed here. Those require platform SDKs, native compilers, build dependencies and/or network package downloads. The matching GitHub Actions workflows are provided for those runners.
 - A full live device-pairing, remote-input, camera, notification and file-transfer QA session was not possible without paired physical devices or configured emulators.
 
-## Implementation details
+## Important implementation details
 
-- Update checks default to `arc2898/sharexf`; `SHAREXF_UPDATE_REPOSITORY` can override it.
-- Linux update asset selection recognizes RPM packages as well as DEB and AppImage packages.
-- macOS, Windows, Linux and Android app themes, browser-extension marks and launcher icons use the gold / biscuit / ivory / charcoal palette. Sidebar illustrations use warm ash and charcoal neutrals.
-- Existing third-party copyright and license notices were retained. Do not remove them when redistributing bundled components.
+- Update checks now default to `arc2898/sharexf`; an explicit `SHAREXF_UPDATE_REPOSITORY` setting can still override it.
+- Linux update asset selection now recognizes RPM packages as well as DEB and AppImage packages.
+- App, browser-extension and launcher marks were recolored with the gold / biscuit / ivory / charcoal palette. The sidebar illustrations were recolored to warm ash and charcoal neutrals.
+- Existing third-party copyright and license notices were retained. Do not remove them when redistributing the GNOME integration or other bundled components.
 
-This report records automated checks run in the sandbox. It is not a claim of platform-native release certification or a complete manual line-by-line code audit.
+This report records automated checks that ran in the sandbox. It is not a claim of platform-native release certification or a complete manual line-by-line code audit.

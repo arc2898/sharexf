@@ -1,0 +1,7 @@
+{
+    "name": "org.gnome.shell.extensions.sharexf",
+    "description": "Native messaging host for ShareXF WebExtension",
+    "path": "@PACKAGE_DATADIR@/service/nativeMessagingHost.js",
+    "type": "stdio",
+    "allowed_extensions": [ "sharexf@andyholmes.github.io" ]
+}

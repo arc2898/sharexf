@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>CFBundleIdentifier</key><string>org.sharexf.mac.calls</string>
+  <key>CFBundleName</key><string>ShareXF Calls</string>
+  <key>NSBluetoothAlwaysUsageDescription</key><string>ShareXF plays your phone's calls through your Mac over Bluetooth.</string>
+  <key>NSBluetoothPeripheralUsageDescription</key><string>ShareXF plays your phone's calls through your Mac over Bluetooth.</string>
+  <key>NSMicrophoneUsageDescription</key><string>ShareXF sends your voice to the phone during a call.</string>
+</dict></plist>

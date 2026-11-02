@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: ShareXF Developers https://github.com/ShareXF
+#
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+[flake8]
+extend-ignore = E402
+max-line-length = 80
+

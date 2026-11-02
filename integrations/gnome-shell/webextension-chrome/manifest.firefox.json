@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
+  "version": "8",
+  "default_locale": "en",
+  "browser_action": {
+    "default_title": "__MSG_extensionName__",
+    "default_popup": "popup.html",
+    "default_icon": "images/sharexf.svg"
+  },
+  "applications": {
+    "gecko": {
+      "id": "sharexf@andyholmes.github.io"
+    }
+  },
+  "background": {
+    "page": "background.html"
+  },
+  "permissions": [
+    "nativeMessaging",
+    "tabs",
+    "contextMenus"
+  ],
+  "icons": {
+    "256": "images/sharexf.svg",
+    "128": "images/sharexf.svg",
+    "64": "images/sharexf.svg",
+    "48": "images/sharexf.svg",
+    "32": "images/sharexf.svg",
+    "24": "images/sharexf.svg",
+    "22": "images/sharexf.svg",
+    "16": "images/sharexf.svg"
+  }
+}

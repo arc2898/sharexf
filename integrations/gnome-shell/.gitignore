@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: ShareXF Developers https://github.com/ShareXF
+#
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+_build
+*~
+webextension/*.zip
+/node_modules
+/package-lock.json
+

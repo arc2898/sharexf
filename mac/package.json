@@ -1,0 +1,26 @@
+{
+  "name": "sharexf-mac",
+  "productName": "ShareXF",
+  "version": "3.0.0-alpha.1",
+  "description": "ShareXF for macOS: secure pairing, file sharing, screen sharing, shared input and device integration.",
+  "license": "GPL-3.0",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "build:helper": "../mac-helper/build.sh 2>&1 | tail -30",
+    "probe": "node dev/probe.js",
+    "dist": "./build-app.sh",
+    "dist:x64": "./build-app.sh x64",
+    "dist:arm64": "./build-app.sh arm64",
+    "dmg": "./build-dmg.sh",
+    "dmg:intel": "./build-app.sh x64 && ./build-dmg.sh"
+  },
+  "dependencies": {
+    "ws": "^8.22.0"
+  },
+  "devDependencies": {
+    "@electron/packager": "^20.3.0",
+    "electron": "^44.7.0"
+  }
+}

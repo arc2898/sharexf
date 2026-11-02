@@ -1,30 +1,88 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#171613">
-<meta name="description" content="ShareXF connects your Mac, Windows PC, Linux desktop and Android devices.">
-<title>ShareXF — Your devices, working together</title><link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171613">
+  <meta name="description" content="ShareXF connects your Mac, Windows PC, Linux desktop and Android devices for file sharing, remote input, clipboard and more.">
+  <title>ShareXF — Your devices, working together</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="top"><div class="wrap nav"><a class="brand" href="./"><span class="mark" aria-hidden="true">S</span> ShareXF</a><nav><a href="#features">Features</a><a href="#platforms">Platforms</a><a href="privacy.html">Privacy</a><a class="navbtn" href="https://github.com/arc2898/sharexf/releases">Get ShareXF ↗</a></nav></div></header>
-<main>
-<section class="hero wrap"><p class="eyebrow">Your devices, in sync</p><h1>One workspace.<br><em>All your devices.</em></h1><p class="lead">Share files, move between screens, use one keyboard and mouse, and connect your phone to your computer. A calm, direct way to make your devices work together.</p><div class="actions"><a class="button gold" href="https://github.com/arc2898/sharexf/releases">Explore downloads ↗</a><a class="button outline" href="https://github.com/arc2898/sharexf">View source ↗</a></div><div class="chips"><span>macOS · Intel &amp; Apple silicon</span><span>Windows 10+</span><span>Linux · DEB / RPM / AppImage</span><span>Android 10+</span></div></section>
-<section class="section" id="features"><div class="wrap"><p class="eyebrow">A connected setup</p><h2>Useful tools. No clutter.</h2><p class="sub">Enable only what you need. Keep everyday actions close and advanced controls out of the way.</p><div class="grid">
-<article><b>⇄</b><h3>File sharing</h3><p>Send and receive files between devices you have paired.</p></article>
-<article><b>⌘</b><h3>Shared input</h3><p>Move between supported computers with one mouse and keyboard.</p></article>
-<article><b>▤</b><h3>Clipboard and alerts</h3><p>Keep selected information close across connected devices.</p></article>
-<article><b>▣</b><h3>Screens and camera</h3><p>Use supported screen, phone and camera tools from your desktop.</p></article>
-<article><b>⌁</b><h3>Device automation</h3><p>Use optional commands and workflows for your own devices.</p></article>
-<article><b>◒</b><h3>Battery and status</h3><p>Check device availability and battery status where supported.</p></article>
-</div></div></section>
-<section class="section" id="platforms"><div class="wrap"><p class="eyebrow">One project, four platforms</p><h2>Choose your device.</h2><p class="sub">Packages appear on GitHub Releases after the corresponding build completes.</p><div class="platforms">
-<article><strong>macOS</strong><small>13+ · Intel and Apple silicon</small><a href="https://github.com/arc2898/sharexf/releases">View releases ↗</a></article>
-<article><strong>Windows</strong><small>10+ · x64 and ARM64</small><a href="https://github.com/arc2898/sharexf/releases">View releases ↗</a></article>
-<article><strong>Linux</strong><small>Debian / Ubuntu · Fedora-family · AppImage</small><a href="https://github.com/arc2898/sharexf/releases">View releases ↗</a></article>
-<article><strong>Android</strong><small>10+ · phones and tablets</small><a href="https://github.com/arc2898/sharexf/releases">View releases ↗</a></article>
-</div></div></section>
-<section class="section"><div class="wrap callout"><div><p class="eyebrow">Private by design</p><h2>Your devices stay yours.</h2><p class="sub">ShareXF is designed for direct connections between paired devices. No ShareXF account is required. Optional features and operating-system permissions stay under your control.</p></div><p class="callout-note"><strong>Read before you connect</strong><br>Understand what enabled features process, what update checks may contact, and how to use remote access safely.<br><a href="privacy.html">Privacy policy ↗</a></p></div></section>
-</main>
-<footer><div class="wrap foot"><span>© 2026 ShareXF contributors · GPL-3.0</span><span><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms &amp; conditions</a><a href="https://github.com/arc2898/sharexf">GitHub</a></span></div></footer>
-</body></html>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="./" aria-label="ShareXF home"><img src="assets/sharexf-mark.svg" alt=""><span>ShareXF</span></a>
+      <nav class="navlinks" aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="#platforms">Platforms</a>
+        <a href="privacy.html">Privacy</a>
+        <a class="nav-cta" href="https://github.com/arc2898/sharexf/releases">Get ShareXF <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">Your devices, in sync</div>
+        <h1>One workspace.<br><span>All your devices.</span></h1>
+        <p class="hero-copy">Share files, move between screens, use one keyboard and mouse, and connect your phone to your computer. A calm, direct way to make your devices work together.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://github.com/arc2898/sharexf/releases">Explore downloads <span aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="https://github.com/arc2898/sharexf">View source <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="platform-line" aria-label="Supported platforms">
+          <span>macOS · Intel &amp; Apple silicon</span><span>Windows 10+</span><span>Linux · DEB / RPM / AppImage</span><span>Android 10+</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">A connected setup</div><h2>Useful tools. No clutter.</h2></div>
+          <p class="section-lead">Turn on only the features you need. ShareXF keeps the everyday actions close and the advanced controls out of your way.</p>
+        </div>
+        <div class="grid">
+          <article class="feature"><div class="feature-icon" aria-hidden="true">⇄</div><h3>File sharing</h3><p>Send and receive files between devices you have paired.</p></article>
+          <article class="feature"><div class="feature-icon" aria-hidden="true">⌘</div><h3>Shared input</h3><p>Move between supported computers with one mouse and keyboard.</p></article>
+          <article class="feature"><div class="feature-icon" aria-hidden="true">▤</div><h3>Clipboard and notifications</h3><p>Keep selected information close across your connected devices.</p></article>
+          <article class="feature"><div class="feature-icon" aria-hidden="true">▣</div><h3>Screens and camera</h3><p>Use supported screen, phone and camera tools from your desktop.</p></article>
+          <article class="feature"><div class="feature-icon" aria-hidden="true">⌁</div><h3>Device automation</h3><p>Use optional commands and workflows for your own devices.</p></article>
+          <article class="feature"><div class="feature-icon" aria-hidden="true">◒</div><h3>Battery and connection</h3><p>Check device availability and battery status where supported.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="platforms">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">One project, four platforms</div><h2>Choose your device.</h2></div>
+          <p class="section-lead">Packages are published to GitHub Releases as platform builds are completed.</p>
+        </div>
+        <div class="platforms">
+          <article class="platform"><div class="platform-top"><span aria-hidden="true">◉</span><span>01</span></div><div><strong>macOS</strong><br><small>macOS 13+ · Intel and Apple silicon</small></div><a href="https://github.com/arc2898/sharexf/releases">View releases ↗</a></article>
+          <article class="platform"><div class="platform-top"><span aria-hidden="true">▦</span><span>02</span></div><div><strong>Windows</strong><br><small>Windows 10+ · x64 and ARM64</small></div><a href="https://github.com/arc2898/sharexf/releases">View releases ↗</a></article>
+          <article class="platform"><div class="platform-top"><span aria-hidden="true">◈</span><span>03</span></div><div><strong>Linux</strong><br><small>Debian / Ubuntu · Fedora-family · AppImage</small></div><a href="https://github.com/arc2898/sharexf/releases">View releases ↗</a></article>
+          <article class="platform"><div class="platform-top"><span aria-hidden="true">▣</span><span>04</span></div><div><strong>Android</strong><br><small>Android 10+ · phones and tablets</small></div><a href="https://github.com/arc2898/sharexf/releases">View releases ↗</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap callout">
+        <div><div class="kicker">Private by design</div><h2>Your devices stay yours.</h2><p>ShareXF is designed for direct connections between paired devices. No ShareXF account is required. Optional features and operating-system permissions stay under your control.</p></div>
+        <div class="callout-side"><strong>Read before you connect</strong>Understand what information features handle, what update checks may contact, and how to use remote access safely.<br><a class="back" href="privacy.html">Privacy policy ↗</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-row">
+      <span>© 2026 ShareXF contributors · Open source under GPL-3.0</span>
+      <div class="footer-links"><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms &amp; conditions</a><a href="https://github.com/arc2898/sharexf">GitHub</a></div>
+    </div>
+  </footer>
+</body>
+</html>

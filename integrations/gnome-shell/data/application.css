@@ -1,0 +1,200 @@
+/*
+ * SPDX-FileCopyrightText: GSConnect Developers https://github.com/GSConnect
+ *
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
+
+/**
+ * Chrome/Firefox buttons in Settings Window
+ */
+.badge-button {
+  border: 0px;
+  padding: 0px;
+  background: transparent;
+}
+
+
+/**
+ * Placeholders
+ */
+.placeholder {
+  background: @content_view_bg_color;
+  margin-bottom: 30px;
+}
+
+.placeholder-image {
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.placeholder-title {
+  font-size: larger;
+  font-weight: bold;
+  margin-bottom: 3px;
+  opacity: 0.5;
+}
+
+.placeholder-description {
+  font-size: smaller;
+  opacity: 0.5;
+}
+
+
+/**
+ * ShareXFContactChooser
+ */
+.contact-window {
+  border-top: 1px solid @borders;
+}
+
+.contact-list row {
+  padding: 0px;
+}
+
+
+/**
+ * ShareXFConversationWidget
+ */
+.message-scrolled {
+  border-bottom: 1px solid @borders;
+}
+
+/**
+ * ShareXFMessagingWindow
+ */
+.message-list > label {
+  font-size: small;
+  margin-bottom: 1em;
+}
+
+.thread-list {
+  background: @content_view_bg_color;
+}
+
+/**
+ * Incoming Message Bubbles (GtkLabel subclass)
+ */
+.message-in {
+  color: @theme_fg_color;
+  background: alpha(@theme_selected_bg_color, 0.2);
+  border: 1px solid alpha(@theme_selected_bg_color, 0.2);
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px -2px rgba(0, 0, 0, 0.75);
+  padding: 6px 9px 6px 9px;
+}
+
+.message-in selection {
+  color: @theme_selected_bg_color;
+  background-color: @theme_selected_fg_color;
+}
+
+
+/**
+ * Outgoing Message Bubbles (GtkLabel subclass)
+ */
+.message-out {
+  color: @theme_fg_color;
+  background-color: @theme_bg_color;
+  border: 1px solid alpha(@theme_fg_color, 0.1);
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px -2px rgba(0, 0, 0, 0.75);
+  caret-color: currentColor;
+  -gtk-secondary-caret-color: currentColor;
+  padding: 6px 9px 6px 9px;
+}
+
+.message-out selection {
+  background-color: @theme_selected_bg_color;
+  color: @theme_selected_fg_color;
+}
+
+/**
+ * Must contrast with message background
+ */
+.message-in *:link,
+.message-out *:link {
+  color: @theme_fg_color;
+}
+
+/**
+ * Special case for pending messages
+ */
+.message-pending .message-out {
+  opacity: 0.5;
+}
+
+/**
+ * Error Dialog
+ */
+.error-stack-frame > * {
+  border-top-width: 0;
+}
+
+
+
+/**
+ * ShareXF dashboard refresh
+ * Keep the host GTK theme in control of foregrounds and accent colours while
+ * giving the device overview clearer hierarchy and more generous spacing.
+ */
+.sharexf-dashboard {
+  min-width: 620px;
+}
+
+.sharexf-dashboard headerbar {
+  min-height: 48px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.sharexf-dashboard .dashboard-content {
+  padding-top: 8px;
+}
+
+.sharexf-dashboard .dashboard-section-title {
+  font-size: 1.25em;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.sharexf-dashboard .dashboard-device-list {
+  background: transparent;
+  border: 1px solid alpha(@borders, 0.9);
+  border-radius: 12px;
+  padding: 6px;
+}
+
+.sharexf-dashboard .dashboard-device-list row {
+  border-radius: 8px;
+  margin: 2px;
+  padding: 5px 8px;
+  transition: background-color 150ms ease-in-out;
+}
+
+.sharexf-dashboard .dashboard-device-list row:hover {
+  background-color: alpha(@theme_selected_bg_color, 0.10);
+}
+
+.sharexf-dashboard .dashboard-device-list row:selected {
+  background-color: alpha(@theme_selected_bg_color, 0.16);
+}
+
+.sharexf-dashboard .dashboard-placeholder {
+  padding: 24px 16px;
+  font-size: 1.05em;
+}
+
+.sharexf-dashboard #service > frame {
+  border-radius: 12px;
+}
+
+.sharexf-dashboard .dashboard-settings-card {
+  border: 1px solid alpha(@borders, 0.9);
+  border-radius: 12px;
+  padding: 8px 12px;
+}
+
+.sharexf-dashboard button {
+  border-radius: 8px;
+}
+

@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
+  "version": "8",
+  "homepage_url": "/wiki",
+  "default_locale": "en",
+  "browser_action": {
+    "default_title": "__MSG_extensionName__",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "256": "images/sharexf-256.png",
+      "128": "images/sharexf-128.png",
+      "64": "images/sharexf-64.png",
+      "48": "images/sharexf-48.png",
+      "32": "images/sharexf-32.png",
+      "24": "images/sharexf-24.png",
+      "22": "images/sharexf-22.png",
+      "16": "images/sharexf-16.png"
+    }
+  },
+  "background": {
+    "page": "background.html"
+  },
+  "permissions": [
+    "nativeMessaging",
+    "tabs",
+    "contextMenus"
+  ],
+  "icons": {
+    "256": "images/sharexf-256.png",
+    "128": "images/sharexf-128.png",
+    "64": "images/sharexf-64.png",
+    "48": "images/sharexf-48.png",
+    "32": "images/sharexf-32.png",
+    "24": "images/sharexf-24.png",
+    "22": "images/sharexf-22.png",
+    "16": "images/sharexf-16.png"
+  }
+}
