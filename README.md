@@ -60,3 +60,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting changes. ShareX
 ## Security
 
 Do not publish private keys, signing certificates, keystores, passwords or device pairing secrets. Report security issues privately to the repository owner rather than posting exploit details in a public issue.
+
+## Publishing
+
+See [PUBLISHING.md](PUBLISHING.md) for enabling GitHub Pages and publishing the full platform source from the supplied source archive.
