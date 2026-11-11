@@ -1,0 +1,55 @@
+name: Pull request checks
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  regression:
+    name: JavaScript and shared regression tests
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install test-only dependency
+        run: npm install --prefix "$RUNNER_TEMP/sharexf-ci" --no-save --ignore-scripts ws@8.22.0
+
+      - name: Check JavaScript syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r -d '' file; do
+            node --check "$file"
+          done < <(find . -path './.git' -prune -o -path '*/node_modules' -prune -o -name '*.js' -type f -print0)
+
+      - name: Run shared-library regression tests
+        shell: bash
+        env:
+          NODE_PATH: ${{ runner.temp }}/sharexf-ci/node_modules
+        run: |
+          set -euo pipefail
+          count=0
+          for test in shared/test/*.js; do
+            # This is an interactive network benchmark, not a deterministic regression test.
+            [[ "$test" == "shared/test/movebench.js" ]] && continue
+            echo "::group::${test}"
+            node "$test"
+            echo "::endgroup::"
+            count=$((count + 1))
+          done
+          echo "Passed $count shared-library test files."
