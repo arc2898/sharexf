@@ -24,10 +24,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: 20
 
-      - name: Install test-only dependency
-        run: npm install --prefix "$RUNNER_TEMP/sharexf-ci" --no-save --ignore-scripts ws@8.22.0
+      - name: Install test-only dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --prefix "$RUNNER_TEMP/sharexf-ci" --no-save --ignore-scripts ws@8.22.0
 
       - name: Check JavaScript syntax
         shell: bash
@@ -53,3 +56,60 @@ jobs:
             count=$((count + 1))
           done
           echo "Passed $count shared-library test files."
+
+  platform-mesh:
+    name: Mesh integration tests (${{ matrix.platform }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: Linux
+            os: ubuntu-24.04
+            test_dir: linux/mesh/test
+          - platform: Windows
+            os: windows-2022
+            test_dir: windows/mesh/test
+          - platform: macOS
+            os: macos-latest
+            test_dir: mac/mesh/test
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install test-only dependencies and Electron stub
+        shell: bash
+        run: |
+          set -euo pipefail
+          test_modules="$RUNNER_TEMP/sharexf-ci/node_modules"
+          npm install --prefix "$RUNNER_TEMP/sharexf-ci" --no-save --ignore-scripts ws@8.22.0
+          # Mesh tests inject fake OS integrations; they need Electron's module shape, not its binary.
+          mkdir -p "$test_modules/electron"
+          cat > "$test_modules/electron/index.js" <<'EOF'
+          module.exports = {
+            nativeImage: {
+              createFromDataURL: () => ({ isEmpty: () => true })
+            }
+          };
+          EOF
+
+      - name: Run platform mesh integration tests
+        shell: bash
+        env:
+          NODE_PATH: ${{ runner.temp }}/sharexf-ci/node_modules
+          TEST_DIR: ${{ matrix.test_dir }}
+        run: |
+          set -euo pipefail
+          count=0
+          for test in "$TEST_DIR"/*.js; do
+            echo "::group::${test}"
+            node "$test"
+            echo "::endgroup::"
+            count=$((count + 1))
+          done
+          echo "Passed $count ${{ matrix.platform }} mesh test files."
