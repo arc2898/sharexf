@@ -26,8 +26,11 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install test-only dependency
-        run: npm install --prefix "$RUNNER_TEMP/sharexf-ci" --no-save --ignore-scripts ws@8.22.0
+      - name: Install test-only dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --prefix "$RUNNER_TEMP/sharexf-ci" --no-save --ignore-scripts ws@8.22.0
 
       - name: Check JavaScript syntax
         shell: bash
@@ -79,8 +82,21 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install test-only dependency
-        run: npm install --prefix "$RUNNER_TEMP/sharexf-ci" --no-save --ignore-scripts ws@8.22.0
+      - name: Install test-only dependencies and Electron stub
+        shell: bash
+        run: |
+          set -euo pipefail
+          test_modules="$RUNNER_TEMP/sharexf-ci/node_modules"
+          npm install --prefix "$RUNNER_TEMP/sharexf-ci" --no-save --ignore-scripts ws@8.22.0
+          # Mesh tests inject fake OS integrations; they need Electron's module shape, not its binary.
+          mkdir -p "$test_modules/electron"
+          cat > "$test_modules/electron/index.js" <<'EOF'
+          module.exports = {
+            nativeImage: {
+              createFromDataURL: () => ({ isEmpty: () => true })
+            }
+          };
+          EOF
 
       - name: Run platform mesh integration tests
         shell: bash
