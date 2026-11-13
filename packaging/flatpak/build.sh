@@ -6,6 +6,7 @@ cd "$ROOT"
 
 command -v flatpak-builder >/dev/null || { echo "flatpak-builder is required" >&2; exit 1; }
 command -v flatpak >/dev/null || { echo "flatpak is required" >&2; exit 1; }
+command -v snapcraft >/dev/null || { echo "snapcraft is required because the Linux installer build also emits a Snap" >&2; exit 1; }
 
 cd "$ROOT/linux"
 if [[ "${1:-}" != "--from-existing" ]]; then
