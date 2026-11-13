@@ -123,7 +123,7 @@ async function main() {
         // Strict confinement. Some hardware/system integrations need snap-store interface
         // auto-connection or manual approval; see packaging documentation before publishing.
         confinement: 'strict',
-        grade: 'stable',
+        grade: 'devel',
         summary: 'Share mouse, keyboard, clipboard, files and screens with your other devices',
         plugs: [
           'home', 'network', 'network-bind', 'removable-media', 'desktop', 'desktop-legacy',
