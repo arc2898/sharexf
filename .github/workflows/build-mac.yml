@@ -100,7 +100,7 @@ jobs:
           fi
           npm run dist -- ${{ matrix.architecture }}
           npm run dmg
-          VERSION="$(node -p \"require('./package.json').version\")"
+          VERSION=$(node -p "require('./package.json').version")
           cp "dist/ShareXF-${VERSION}-${{ matrix.architecture }}.dmg" "dist/ShareXF-latest-${{ matrix.architecture }}.dmg"
         env:
           MAC_APP_PROFILE_BASE64: ${{ secrets.MAC_APP_PROFILE_BASE64 }}
