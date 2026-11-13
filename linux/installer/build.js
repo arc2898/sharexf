@@ -95,7 +95,7 @@ async function main() {
 
   console.log('Packaging…');
   await builder.build({
-    targets: builder.Platform.LINUX.createTarget(['AppImage', 'deb', 'rpm'], builder.Arch.x64),
+    targets: builder.Platform.LINUX.createTarget(['AppImage', 'deb', 'rpm', 'snap'], builder.Arch.x64),
     projectDir: LIN,
     config: {
       appId: 'org.sharexf.linux',
@@ -118,6 +118,19 @@ async function main() {
         depends: ['gtk3', 'libnotify', 'nss', 'libXScrnSaver', 'libXtst', 'xdg-utils', 'at-spi2-core', 'libuuid', 'libsecret', 'libXi', 'libXrandr', 'libXfixes', 'openssl', 'dbus', 'pipewire-pulseaudio', 'polkit', 'glib2'],
         fpm: systemFiles,
         artifactName: 'ShareXF-${version}-${arch}.${ext}',
+      },
+      snap: {
+        // Strict confinement. Some hardware/system integrations need snap-store interface
+        // auto-connection or manual approval; see packaging documentation before publishing.
+        confinement: 'strict',
+        grade: 'devel',
+        summary: 'Share mouse, keyboard, clipboard, files and screens with your other devices',
+        plugs: [
+          'home', 'network', 'network-bind', 'removable-media', 'desktop', 'desktop-legacy',
+          'wayland', 'x11', 'opengl', 'gsettings', 'audio-playback', 'audio-record',
+          'camera', 'bluetooth-control', 'hardware-observe', 'system-observe', 'mount-observe',
+          'raw-usb', 'joystick', 'network-control', 'network-manager', 'password-manager-service'
+        ],
       },
       deb: {
         // Electron's own needs plus what ShareXF calls: openssl (host certificate), pactl (sound),

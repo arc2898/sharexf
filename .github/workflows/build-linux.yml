@@ -47,6 +47,9 @@ jobs:
         with:
           keystore: ${{ secrets.ANDROID_KEYSTORE }}
 
+      - name: Install Snapcraft
+        run: sudo snap install snapcraft --classic
+
       - name: Install dependencies
         working-directory: linux
         run: npm install
@@ -55,11 +58,19 @@ jobs:
         working-directory: linux
         run: npm run dist
 
+      - name: Build Flatpak bundle
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y flatpak flatpak-builder
+          bash packaging/flatpak/build.sh --from-existing
+
       - name: Upload packages
         uses: actions/upload-artifact@v4
         with:
           name: sharexf-linux-x64
-          path: linux/dist/ShareXF-*
+          path: |
+            linux/dist/ShareXF-*
+            linux/dist/ShareXF.flatpak
 
       # Straight onto the release, no download and re-upload.
       - name: Upload to the release
@@ -68,4 +79,4 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release view "${{ inputs.tag }}" >/dev/null 2>&1 || gh release create "${{ inputs.tag }}" --draft --target main --title "${{ inputs.tag }}" --notes "" || true
-          gh release upload "${{ inputs.tag }}" linux/dist/ShareXF-*.AppImage linux/dist/ShareXF-*.deb linux/dist/ShareXF-*.rpm --clobber
+          gh release upload "${{ inputs.tag }}" linux/dist/ShareXF-*.AppImage linux/dist/ShareXF-*.deb linux/dist/ShareXF-*.rpm linux/dist/ShareXF-*.snap linux/dist/ShareXF.flatpak --clobber

@@ -113,3 +113,31 @@ jobs:
             count=$((count + 1))
           done
           echo "Passed $count ${{ matrix.platform }} mesh test files."
+
+  packaging-validation:
+    name: Packaging manifest and script checks
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Install YAML parser
+        run: sudo apt-get update && sudo apt-get install -y python3-yaml
+
+      - name: Check packaging script and Cask syntax
+        run: |
+          bash -n packaging/flatpak/build.sh
+          ruby -c Casks/sharexf.rb
+
+      - name: Validate Flatpak manifest
+        run: |
+          python3 - <<'PY'
+          import yaml
+          with open("packaging/flatpak/org.sharexf.sharexf.yml", encoding="utf-8") as stream:
+              manifest = yaml.safe_load(stream)
+          assert manifest["app-id"] == "org.sharexf.sharexf"
+          assert manifest["runtime-version"] == "25.08"
+          assert manifest["command"] == "sharexf"
+          assert any(module["name"] == "sharexf" for module in manifest["modules"])
+          print("Flatpak manifest structure is valid.")
+          PY

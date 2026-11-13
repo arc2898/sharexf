@@ -26,9 +26,11 @@ The website URL is <https://arc2898.github.io/sharexf/>. The privacy and terms p
 
 The platform workflows are manually dispatched from **Actions**:
 
-- **Build macOS**: produces separate Intel (`x64`) and Apple silicon (`arm64`) DMGs. Developer ID signing and notarization require the corresponding repository secrets.
+- **Build macOS**: produces separate Intel (`x64`) and Apple silicon (`arm64`) DMGs. Release uploads also include stable `ShareXF-latest-*.dmg` aliases for the Homebrew Cask at `Casks/sharexf.rb`. Developer ID signing and notarization require the corresponding repository secrets.
 - **Build Windows**: produces x64 and ARM64 installers on a Windows runner.
-- **Build Linux**: produces `.deb`, `.rpm` and AppImage packages on Ubuntu.
+- **Build Linux**: produces `.deb`, `.rpm`, AppImage and strict-confinement Snap packages on Ubuntu. It also builds an x86_64 Flatpak bundle from the generated Debian package; the Flatpak needs broad host/device permissions for ShareXF's input and device integrations, and is not yet a Flathub submission.
 - **Build Android**: produces standard and full APK variants. Without an Android signing keystore secret, the build is for testing and will not update-install over a differently signed copy.
 
-For release uploads, provide an existing version tag in the workflow's `tag` input. Leave it blank to create downloadable workflow artifacts without publishing a release. Signing credentials must never be committed to the repository.
+To install the macOS Cask directly, use `brew install --cask https://raw.githubusercontent.com/arc2898/sharexf/main/Casks/sharexf.rb`. For Flatpak development builds, run `packaging/flatpak/build.sh` on a supported x86_64 Linux host with Flatpak, Flatpak Builder, and Snapcraft installed.
+
+An Alpine `.apk` is intentionally not generated: the current Electron runtime targets glibc, while Alpine uses musl. See `packaging/alpine/README.md`; a package should only be added after native runtime and helper compatibility are demonstrated. For release uploads, provide an existing version tag in the workflow's `tag` input. Leave it blank to create downloadable workflow artifacts without publishing a release. Signing credentials must never be committed to the repository.
