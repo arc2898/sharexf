@@ -8,8 +8,10 @@ command -v flatpak-builder >/dev/null || { echo "flatpak-builder is required" >&
 command -v flatpak >/dev/null || { echo "flatpak is required" >&2; exit 1; }
 
 cd "$ROOT/linux"
-npm install
-npm run dist
+if [[ "${1:-}" != "--from-existing" ]]; then
+  npm install
+  npm run dist
+fi
 
 DEB="$(find dist -maxdepth 1 -type f -name 'ShareXF-*-amd64.deb' -print -quit)"
 [ -n "$DEB" ] || { echo "No x86_64 .deb found in linux/dist" >&2; exit 1; }
