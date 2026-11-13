@@ -1,0 +1,32 @@
+app-id: org.sharexf.ShareXF
+runtime: org.freedesktop.Platform
+runtime-version: "24.08"
+sdk: org.freedesktop.Sdk
+command: sharexf
+finish-args:
+  - --share=network
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --device=all
+  - --filesystem=home
+  - --filesystem=host
+  - --talk-name=org.freedesktop.DBus
+  - --system-talk-name=org.freedesktop.NetworkManager
+  - --system-talk-name=org.bluez
+  - --talk-name=org.freedesktop.Notifications
+  - --talk-name=org.freedesktop.portal.Desktop
+modules:
+  - name: sharexf
+    buildsystem: simple
+    build-commands:
+      - install -d /app/sharexf /app/bin /app/share/applications /app/share/icons/hicolor/256x256/apps
+      - cp -a . /app/sharexf/
+      - printf '%s\\n' '#!/bin/sh' 'exec /app/sharexf/sharexf "$@"' > /app/bin/sharexf
+      - chmod 755 /app/bin/sharexf
+      - printf '%s\\n' '[Desktop Entry]' 'Name=ShareXF' 'Comment=Share input, files and screens with other devices' 'Exec=sharexf' 'Icon=org.sharexf.ShareXF' 'Terminal=false' 'Type=Application' 'Categories=Utility;Network;' > /app/share/applications/org.sharexf.ShareXF.desktop
+      - install -Dm644 /app/sharexf/resources/app/linux/assets/icon.png /app/share/icons/hicolor/256x256/apps/org.sharexf.ShareXF.png
+    sources:
+      - type: dir
+        path: ../../linux/dist/flatpak-root/opt/ShareXF
