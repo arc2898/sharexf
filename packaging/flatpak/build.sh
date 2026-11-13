@@ -24,9 +24,9 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 flatpak-builder --user --force-clean --install-deps-from=flathub \
   --repo="$ROOT/linux/dist/flatpak-repo" \
   "$ROOT/linux/dist/flatpak-build" \
-  "$ROOT/packaging/flatpak/org.sharexf.ShareXF.yml"
+  "$ROOT/packaging/flatpak/org.sharexf.sharexf.yml"
 
 flatpak build-bundle "$ROOT/linux/dist/flatpak-repo" \
-  "$ROOT/linux/dist/ShareXF.flatpak" org.sharexf.ShareXF stable
+  "$ROOT/linux/dist/ShareXF.flatpak" org.sharexf.sharexf stable
 
 echo "Built linux/dist/ShareXF.flatpak"
