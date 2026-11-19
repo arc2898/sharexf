@@ -62,17 +62,6 @@ The Linux packaging workflow builds `.deb`, `.rpm` and AppImage outputs on an Ub
 
 To upload the complete source tree to the project repository, see [PUBLISHING.md](PUBLISHING.md) and run `python3 publish-to-github.py` from the extracted project directory.
 
-## Website
-
-The static project website and GitHub Pages deployment workflow are included. Enable **Settings → Pages → Source → GitHub Actions** to publish it at <https://arc2898.github.io/sharexf/>. See [PUBLISHING.md](PUBLISHING.md).
-
-## Privacy and terms
-
-- [Privacy policy](https://arc2898.github.io/sharexf/privacy.html)
-- [Terms and conditions](https://arc2898.github.io/sharexf/terms.html)
-
-The application is designed for direct device-to-device communication. Optional update checks can contact GitHub. Read the policy for details and for the limits of this summary.
-
 ## Contributing and licensing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting changes. ShareXF is distributed under the GNU General Public License v3.0; see [LICENSE](LICENSE). Third-party components and required notices are listed in [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES) and `licenses/`.
