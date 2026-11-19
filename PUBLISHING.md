@@ -1,26 +1,16 @@
 # Publishing ShareXF
 
-The project website is stored in `website/` and deployed by `.github/workflows/pages.yml`.
-The repository is `https://github.com/arc2898/sharexf`.
+The repository contains the ShareXF application source for desktop, Android and platform helper components.
 
 ## Publish the full source tree
 
-The website and project overview have already been placed in the GitHub repository. To add the complete desktop, helper, Android and integration source tree from this package, extract the archive and run this from the extracted `ShareXF` directory:
+To add the complete desktop, helper, Android and integration source tree from this package, extract the archive and run this from the extracted `ShareXF` directory:
 
 ```sh
 python3 publish-to-github.py
 ```
 
 Requirements: Python 3, Git, and an authenticated GitHub credential manager with write access to `arc2898/sharexf`. The script clones the existing repository, copies the project files while excluding dependency caches, generated build output and local signing secrets, then commits and pushes to `main`. It does not delete or modify your original extracted folder.
-
-## Enable the website
-
-1. Open [ShareXF repository settings](https://github.com/arc2898/sharexf/settings/pages).
-2. Under **Build and deployment → Source**, select **GitHub Actions**.
-3. Save the setting if GitHub shows a Save button.
-4. Open the [Actions tab](https://github.com/arc2898/sharexf/actions) and wait for **Deploy ShareXF website** to finish successfully.
-
-The website URL is <https://arc2898.github.io/sharexf/>. The privacy and terms pages are linked in the site's footer. GitHub Pages publishes the site publicly; do not place secrets or private files in `website/`.
 
 ## Build installers
 
